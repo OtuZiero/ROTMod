@@ -121,7 +121,7 @@ namespace ROTMod.Players
 
         private string GetDeathMessage(PlayerDeathReason reason)
         {
-            if (reason.SourceCustomReason != null)
+            if (reason.CustomReason != null)
                 return "Memento Mori... até a própria morte tem estilo.";
             if (reason.SourceProjectileType > 0)
                 return $"Morreu para {Lang.GetProjectileName(reason.SourceProjectileType)}? Que patético.";
@@ -151,7 +151,7 @@ namespace ROTMod.Players
             if (Player.statLife < 0) Player.statLife = 0;
             if (Player.statLife <= 0)
             {
-                Player.KillMe(PlayerDeathReason.ByCustomReason($"{Player.name} foi drenado pelo ROT."), 0, 0);
+                Player.KillMe(PlayerDeathReason.ByCustomReason(NetworkText.FromLiteral($"{Player.name} foi drenado pelo ROT.")), 0, 0);
             }
             return true;
         }
