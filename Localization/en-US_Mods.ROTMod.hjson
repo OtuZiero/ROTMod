@@ -1,0 +1,28 @@
+// Localization/en-US.hjson
+Items: {
+	ROT: {
+		DisplayName: ROT - Recodificador Organo-Tecnológico
+		Tooltip:
+			'''
+			Máscara simbiótica – fusão entre humano e entidade quântica. 
+			Sua afinidade com o [c/F70707:Cejera] concede visão além do véu.
+			Coma uma [c/FFA500:Cereja] para ativar a Ressonância C1 por 7s.
+			Durante a ressonância, o ROT não exige sacrifício.
+			[Pressione Shift para mais lore]
+			'''
+	}
+
+	Cereja: {
+		DisplayName: Cereja
+		Tooltip: ""
+	}
+}
+
+Buffs: {
+	RessonanciaC1: {
+		DisplayName: Ressonância C1
+		Description: O ROT está em sintonia total – nenhum custo de vida!
+	}
+}
+
+Keybinds.SpelunkerVision.DisplayName: Spelunker Vision
