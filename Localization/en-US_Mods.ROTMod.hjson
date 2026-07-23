@@ -16,6 +16,11 @@ Items: {
 		DisplayName: Cereja
 		Tooltip: ""
 	}
+
+	ROT_Head: {
+		DisplayName: R O T_ Head
+		Tooltip: ""
+	}
 }
 
 Buffs: {
