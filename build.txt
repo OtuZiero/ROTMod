@@ -1,0 +1,7 @@
+displayName = ROT Mod
+author = Cejera
+version = 1.0
+homepage = cejera.com/
+hideCode = false
+hideResources = false
+includeSource = true
