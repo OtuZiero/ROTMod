@@ -59,22 +59,22 @@ namespace ROTMod.Items
             var modPlayer = player.GetModPlayer<ROTPlayer>();
             modPlayer.hasROT = true;
 
-            player.thorns = 1f;
-            player.GetDamage(DamageClass.Magic) += 0.5f;
+            // Increased thorns damage
+            player.thorns = 2f;
+            
+            // EXTREME magic damage boost: 150% (previously 50%)
+            player.GetDamage(DamageClass.Magic) += 1.5f;
 
-            // ===== INFORMAÇÕES DO CELULAR (AJUSTE CONFORME SUA VERSÃO) =====
-            // Se sua versão usa bool:
-            player.accWatch = 3;
-            player.accDepthMeter = 1;
-            player.accCompass = 1;
-            player.accFishFinder = true;
-            player.accOreFinder = true;
-            player.accStopwatch = true;
-            player.accCalendar = true;
-            player.accWeatherRadio = true;
-            player.accCritterGuide = true;
-            // Se sua versão usa int, substitua por:
-            // player.accWatch = 3; etc.
+            // Cellphone components - now fully functional
+            player.accWatch = 3;           // Accurate watch
+            player.accDepthMeter = 1;      // Depth meter
+            player.accCompass = 1;         // Compass
+            player.accFishFinder = true;   // Fish finder
+            player.accOreFinder = true;    // Ore finder (required for Spelunker alternative)
+            player.accStopwatch = true;    // Stopwatch
+            player.accCalendar = true;     // Calendar
+            player.accWeatherRadio = true; // Weather radio
+            player.accCritterGuide = true; // Critter guide
         }
     }
 }
