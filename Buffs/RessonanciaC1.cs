@@ -1,5 +1,4 @@
 using Terraria;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace ROTMod.Buffs
@@ -8,8 +7,8 @@ namespace ROTMod.Buffs
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Ressonância C1");
-            Description.SetDefault("Você está em sintonia com o ROT!\nNenhum custo de vida para usar suas habilidades.");
+            DisplayName.AddTranslation("en-US", "Ressonância C1");
+            Description.AddTranslation("en-US", "Você está em sintonia com o ROT!\nNenhum custo de vida para usar suas habilidades.");
         }
     }
 }
