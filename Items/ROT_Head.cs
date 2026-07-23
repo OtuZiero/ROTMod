@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 
 namespace ROTMod.Items
 {
+    [AutoloadEquip(EquipType.Head)]
     public class ROT_Head : ModItem
     {
         public override void SetDefaults()
@@ -13,7 +14,6 @@ namespace ROTMod.Items
             Item.defense = 32;
             Item.rare = ItemRarityID.Red;
             Item.value = Item.sellPrice(gold: 10);
-            Item.headSlot = 0;
         }
     }
 }
