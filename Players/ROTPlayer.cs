@@ -4,7 +4,6 @@ using System;
 using Microsoft.Xna.Framework;
 using ROTMod.Buffs;
 using ROTMod.Effects;
-using ROTMod.Items;
 using Terraria.DataStructures;
 using Terraria.Map;
 using Terraria.ID;
@@ -24,7 +23,7 @@ namespace ROTMod.Players
 
         public override void Load()
         {
-            SpelunkerKeybind = KeybindLoader.RegisterKeybind(Mod, "SpelunkerVision", "LeftShift");
+            SpelunkerKeybind = KeybindLoader.RegisterKeybind(Mod, "SpelunkerVision", "LeftAlt");
         }
 
         public override void Unload()
