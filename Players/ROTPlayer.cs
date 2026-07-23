@@ -4,6 +4,7 @@ using System;
 using Microsoft.Xna.Framework;
 using ROTMod.Buffs;
 using ROTMod.Effects;
+using ROTMod.Items;
 using Terraria.DataStructures;
 using Terraria.Map;
 using Terraria.ID;
@@ -17,6 +18,7 @@ namespace ROTMod.Players
         public bool hasROT = false;
         private int timer = 0;
         private int nextMessageTime = 0;
+        private int spelunkerCooldown = 0;
 
         public static ModKeybind SpelunkerKeybind { get; private set; }
 
@@ -30,11 +32,18 @@ namespace ROTMod.Players
             SpelunkerKeybind = null;
         }
 
-        public override void ResetEffects() { }
+        public override void ResetEffects() 
+        { 
+            // Keep hasROT persistent during equipment check
+        }
 
         public override void PostUpdate()
         {
             if (!hasROT) return;
+
+            // Cooldown for Spelunker effect
+            if (spelunkerCooldown > 0)
+                spelunkerCooldown--;
 
             if (timer >= nextMessageTime)
             {
@@ -60,10 +69,29 @@ namespace ROTMod.Players
         {
             if (SpelunkerKeybind != null && SpelunkerKeybind.JustPressed && hasROT)
             {
-                Player.AddBuff(BuffID.Spelunker, 3600);
-                Main.NewText("<ROT> Visão de minério ativada!", Color.Green);
-                TriggerGlitch();
+                if (spelunkerCooldown <= 0)
+                {
+                    ActivateSpelunkerVision();
+                    spelunkerCooldown = 600; // 10 second cooldown
+                }
             }
+        }
+
+        private void ActivateSpelunkerVision()
+        {
+            // Drain 77% of max health
+            int drainAmount = (int)(Player.statLifeMax * 0.77f);
+            Player.statLife -= drainAmount;
+
+            if (Player.statLife < 1)
+            {
+                Player.statLife = 1; // Prevent instant death
+            }
+
+            // Apply Spelunker buff for 7 seconds (420 frames)
+            Player.AddBuff(BuffID.Spelunker, 420);
+            Main.NewText("<ROT> Visão de minério ativada! (Custo: 77% de vida)", Color.Green);
+            TriggerGlitch();
         }
 
         private void SendRandomMessage()
