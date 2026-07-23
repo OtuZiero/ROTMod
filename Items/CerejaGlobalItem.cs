@@ -23,18 +23,25 @@ namespace ROTMod.Items
             }
         }
 
-        public override void OnConsume(Item item, Player player)
+        public override bool ConsumeItem(Item item, Player player)
         {
-            // If player is wearing ROT mask, grant Ressonancia buff
             if (item.type == Terraria.ID.ItemID.Cherry)
             {
                 var modPlayer = player.GetModPlayer<ROTPlayer>();
+
                 if (modPlayer.hasROT)
                 {
-                    player.AddBuff(ModContent.BuffType<Buffs.RessonanciaC1>(), 7200); // 2 minutes
-                    Terraria.Audio.SoundEngine.PlaySound(Terraria.ID.SoundID.Item4, player.position);
+                    player.AddBuff(
+                        ModContent.BuffType<Buffs.RessonanciaC1>(),
+                        7200);
+
+                    Terraria.Audio.SoundEngine.PlaySound(
+                        Terraria.ID.SoundID.Item4,
+                        player.position);
                 }
             }
+
+            return true; // permite que a cereja seja consumida normalmente
         }
     }
 }
