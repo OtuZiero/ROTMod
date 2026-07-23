@@ -76,18 +76,5 @@ namespace ROTMod.Items
             // Se sua versão usa int, substitua por:
             // player.accWatch = 3; etc.
         }
-
-        public override void Load()
-        {
-            if (Main.netMode != NetmodeID.Server)
-            {
-                EquipLoader.AddEquipTexture(Mod, "ROTMod/textures/ROT_Head", EquipType.Head, this);
-            }
-        }
-
-        public override void SetMatch(bool male, ref int equipSlot, ref bool robes)
-        {
-            equipSlot = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Head);
-        }
     }
 }
