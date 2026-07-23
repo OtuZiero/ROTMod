@@ -8,6 +8,7 @@ using Terraria.DataStructures;
 using Terraria.Map;
 using Terraria.ID;
 using Terraria.GameInput;
+using Terraria.Localization;
 
 namespace ROTMod.Players
 {
